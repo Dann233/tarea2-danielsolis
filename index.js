@@ -2,6 +2,8 @@ import express from 'express';
 import { getAll } from './routes/mundiales/getAll.js';
 import { getBySlug } from './routes/mundiales/getBySlug.js';
 import { getRandom } from './routes/mundiales/getRandom.js';
+import { getByCampeon } from './routes/mundiales/getByCampeon.js';
+import { search } from './routes/mundiales/search.js';
 
 const app = express();
 app.enable('strict routing');
@@ -29,6 +31,8 @@ app.get('/', (req, res) => {
 app.get('/mundiales', getAll);
 app.get('/mundial/:slug', getBySlug);
 app.get('/random', getRandom);
+app.get('/campeon/:pais', getByCampeon);
+app.get('/search/:text', search);
 
 app.use('/imagenes', express.static('public/imagenes'));
 

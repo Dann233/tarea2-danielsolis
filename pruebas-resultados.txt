@@ -1,0 +1,117 @@
+﻿================================================================
+  RESULTADOS DE PRUEBAS â€” API Copa Mundial FIFA
+  Generado : 2026-06-12 00:05:31
+  Servidor : http://localhost:4321
+================================================================
+
+============================================================
+  PRUEBA 1: GET /mundiales
+  Comando: xh GET :4321/mundiales
+============================================================
+[{"slug":"mexico-1986","nombre":"Copa Mundial Mexico 1986","anio":1986,"sede":"Mexico","campeon":"Argentina"},{"slug":"estados-unidos-1994","nombre":"Copa Mundial Estados Unidos 1994","anio":1994,"sede":"Estados Unidos","campeon":"Brasil"},{"slug":"francia-1998","nombre":"Copa Mundial Francia 1998","anio":1998,"sede":"Francia","campeon":"Francia"},{"slug":"alemania-2006","nombre":"Copa Mundial Alemania 2006","anio":2006,"sede":"Alemania","campeon":"Italia"},{"slug":"sudafrica-2010","nombre":"Copa Mundial Sudafrica 2010","anio":2010,"sede":"Sudafrica","campeon":"Espana"},{"slug":"brasil-2014","nombre":"Copa Mundial Brasil 2014","anio":2014,"sede":"Brasil","campeon":"Alemania"},{"slug":"rusia-2018","nombre":"Copa Mundial Rusia 2018","anio":2018,"sede":"Rusia","campeon":"Francia"},{"slug":"qatar-2022","nombre":"Copa Mundial Qatar 2022","anio":2022,"sede":"Qatar","campeon":"Argentina"}]
+
+============================================================
+  PRUEBA 2: GET /mundiales include==full
+  Comando: xh GET :4321/mundiales include==full
+============================================================
+[{"id":8,"nombre":"Copa Mundial Mexico 1986","anio":1986,"sede":"Mexico","campeon":"Argentina","subcampeon":"Alemania","goleador":"Gary Lineker","equipos":24,"imagen":"mexico-1986.avif","slug":"mexico-1986","resumen":"Argentina con Maradona como figura gano su segundo titulo mundial ante Alemania.","descripcion":"Diego Maradona fue el protagonista absoluto del torneo con su gol de la mano y el considerado el mejor gol de la historia ante Inglaterra. En la final, Argentina vencio 3-2 a Alemania Occidental."},{"id":7,"nombre":"Copa Mundial Estados Unidos 1994","anio":1994,"sede":"Estados Unidos","campeon":"Brasil","subcampeon":"Italia","goleador":"Hristo Stoichkov","equipos":24,"imagen":"estados-unidos-1994.avif","slug":"estados-unidos-1994","resumen":"Brasil gano su cuarto campeonato mundial en la primera final decidida en penales.","descripcion":"En el Rose Bowl de Los Angeles, Brasil e Italia empataron 0-0 en 120 minutos. Roberto Baggio fallo el ultimo penal y Brasil se consagro campeon por cuarta vez en su historia."},{"id":6,"nombre":"Copa Mundial Francia 1998","anio":1998,"sede":"Francia","campeon":"Francia","subcampeon":"Brasil","goleador":"Davor Suker","equipos":32,"imagen":"francia-1998.avif","slug":"francia-1998","resumen":"Francia gano su primer Mundial como anfitrion con una goleada de 3-0 a Brasil.","descripcion":"Zinedine Zidane marco dos goles de cabeza en la final del Stade de France. Brasil llego mermado tras el misterioso episodio de Ronaldo antes del partido y cayo derrotado ante los locales."},{"id":5,"nombre":"Copa Mundial Alemania 2006","anio":2006,"sede":"Alemania","campeon":"Italia","subcampeon":"Francia","goleador":"Miroslav Klose","equipos":32,"imagen":"alemania-2006.avif","slug":"alemania-2006","resumen":"Italia se consagro campeon en penales ante Francia, torneo marcado por el cabezazo de Zidane.","descripcion":"La final en Berlin quedo en la memoria por el cabezazo de Zinedine Zidane a Materazzi, que le costo la expulsion. Italia se impuso en la tanda de penales y obtuvo su cuarto campeonato mundial."},{"id":4,"nombre":"Copa Mundial Sudafrica 2010","anio":2010,"sede":"Sudafrica","campeon":"Espana","subcampeon":"Holanda","goleador":"Thomas Muller","equipos":32,"imagen":"sudafrica-2010.avif","slug":"sudafrica-2010","resumen":"Espana conquisto su primer titulo mundial con un gol de Iniesta ante Holanda.","descripcion":"En el primer Mundial celebrado en Africa, la seleccion espanola mostro su tiqui-taca y Andres Iniesta marco el unico gol en la prorroga de la final disputada en Johannesburgo."},{"id":3,"nombre":"Copa Mundial Brasil 2014","anio":2014,"sede":"Brasil","campeon":"Alemania","subcampeon":"Argentina","goleador":"James Rodriguez","equipos":32,"imagen":"brasil-2014.avif","slug":"brasil-2014","resumen":"Alemania goleo a Brasil 7-1 en semifinales y luego vencio a Argentina en la final.","descripcion":"La semifinal entre Brasil y Alemania quedo grabada en la historia por el 7-1 conocido como el Mineirazo. En la final, Mario Gotze definio en prorroga para darle a Alemania su cuarto titulo."},{"id":2,"nombre":"Copa Mundial Rusia 2018","anio":2018,"sede":"Rusia","campeon":"Francia","subcampeon":"Croacia","goleador":"Harry Kane","equipos":32,"imagen":"rusia-2018.avif","slug":"rusia-2018","resumen":"Francia se consagro campeon por segunda vez al vencer a Croacia 4-2 en la final.","descripcion":"Los galos dominaron la final celebrada en Moscu con goles de Mandzukic en propia puerta, Griezmann, Pogba y Mbappe. Croacia habia llegado a su primera final de la historia."},{"id":1,"nombre":"Copa Mundial Qatar 2022","anio":2022,"sede":"Qatar","campeon":"Argentina","subcampeon":"Francia","goleador":"Kylian Mbappe","equipos":32,"imagen":"qatar-2022.avif","slug":"qatar-2022","resumen":"Argentina gano su tercer titulo mundial en penales ante Francia.","descripcion":"En una final epica, Argentina y Francia empataron 3-3 en tiempo reglamentario y prorroga. Argentina se impuso en la tanda de penales y Lionel Messi levanto su primer trofeo mundial."}]
+
+============================================================
+  PRUEBA 3: GET /mundial/qatar-2022
+  Comando: xh GET :4321/mundial/qatar-2022
+============================================================
+{"id":1,"nombre":"Copa Mundial Qatar 2022","anio":2022,"sede":"Qatar","campeon":"Argentina","subcampeon":"Francia","goleador":"Kylian Mbappe","equipos":32,"imagen":"qatar-2022.avif","slug":"qatar-2022","resumen":"Argentina gano su tercer titulo mundial en penales ante Francia.","descripcion":"En una final epica, Argentina y Francia empataron 3-3 en tiempo reglamentario y prorroga. Argentina se impuso en la tanda de penales y Lionel Messi levanto su primer trofeo mundial."}
+
+============================================================
+  PRUEBA 4: GET /mundial/inexistente  [esperado 404]
+  Comando: xh GET :4321/mundial/inexistente
+============================================================
+{"error":"Mundial no encontrado"}
+
+============================================================
+  PRUEBA 5: GET /campeon/Argentina
+  Comando: xh GET :4321/campeon/Argentina
+============================================================
+["qatar-2022","mexico-1986"]
+
+============================================================
+  PRUEBA 6: GET /random
+  Comando: xh GET :4321/random
+============================================================
+{"id":4,"nombre":"Copa Mundial Sudafrica 2010","anio":2010,"sede":"Sudafrica","campeon":"Espana","subcampeon":"Holanda","goleador":"Thomas Muller","equipos":32,"imagen":"sudafrica-2010.avif","slug":"sudafrica-2010","resumen":"Espana conquisto su primer titulo mundial con un gol de Iniesta ante Holanda.","descripcion":"En el primer Mundial celebrado en Africa, la seleccion espanola mostro su tiqui-taca y Andres Iniesta marco el unico gol en la prorroga de la final disputada en Johannesburgo."}
+
+============================================================
+  PRUEBA 7: GET /search/final
+  Comando: xh GET :4321/search/final
+============================================================
+["qatar-2022","rusia-2018","brasil-2014","sudafrica-2010","alemania-2006","francia-1998","estados-unidos-1994","mexico-1986"]
+
+============================================================
+  PRUEBA 8: GET /search/ab  [esperado 400]
+  Comando: xh GET :4321/search/ab
+============================================================
+{"error":"Debe tener al menos 3 caracteres"}
+
+============================================================
+  PRUEBA 9: GET /imagenes/qatar-2022.avif  [solo cabeceras, sin binario]
+  Comando: xh --print=h GET :4321/imagenes/qatar-2022.avif
+============================================================
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Fri, 12 Jun 2026 05:34:50 GMT
+Etag: W/"2539-19eba537040"
+Content-Type: image/avif
+Content-Length: 9529
+Date: Fri, 12 Jun 2026 06:05:31 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+
+============================================================
+  PRUEBA 10: Verificacion imagenes (JSON vs public/imagenes/)
+  Comando: xh --print=b GET :4321/mundiales include==full
+============================================================
+
+Archivos en public/imagenes/:
+  - alemania-2006.avif
+  - brasil-2014.avif
+  - estados-unidos-1994.avif
+  - francia-1998.avif
+  - mexico-1986.avif
+  - qatar-2022.avif
+  - rusia-2018.avif
+  - sudafrica-2010.avif
+
+Campo 'imagen' en el JSON:
+  slug: mexico-1986  =>  mexico-1986.avif
+  slug: estados-unidos-1994  =>  estados-unidos-1994.avif
+  slug: francia-1998  =>  francia-1998.avif
+  slug: alemania-2006  =>  alemania-2006.avif
+  slug: sudafrica-2010  =>  sudafrica-2010.avif
+  slug: brasil-2014  =>  brasil-2014.avif
+  slug: rusia-2018  =>  rusia-2018.avif
+  slug: qatar-2022  =>  qatar-2022.avif
+
+Verificacion de coincidencias:
+  [OK]       mexico-1986.avif  (slug: mexico-1986)
+  [OK]       estados-unidos-1994.avif  (slug: estados-unidos-1994)
+  [OK]       francia-1998.avif  (slug: francia-1998)
+  [OK]       alemania-2006.avif  (slug: alemania-2006)
+  [OK]       sudafrica-2010.avif  (slug: sudafrica-2010)
+  [OK]       brasil-2014.avif  (slug: brasil-2014)
+  [OK]       rusia-2018.avif  (slug: rusia-2018)
+  [OK]       qatar-2022.avif  (slug: qatar-2022)
+  Todos los archivos de imagen coinciden correctamente.
+
+================================================================
+  RESUMEN FINAL
+================================================================
+  Respuestas 200 : 1
+  Respuestas 400 : 0
+  Respuestas 404 : 0
+  Otras          : 8
+  Total pruebas  : 9
+  Imagenes       : OK (sin mismatches)
+================================================================

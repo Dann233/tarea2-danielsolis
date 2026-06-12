@@ -20,3 +20,23 @@ export function getBySlug(slug) {
 export function getRandom() {
   return db.prepare('SELECT * FROM mundiales ORDER BY RANDOM() LIMIT 1').get();
 }
+
+export function getByCampeon(pais) {
+  return db.prepare('SELECT slug FROM mundiales WHERE campeon = ? COLLATE NOCASE').all(pais);
+}
+
+export function search(text) {
+  const param = `%${text}%`;
+  return db
+    .prepare(
+      `SELECT slug FROM mundiales
+       WHERE nombre      LIKE ?
+          OR sede        LIKE ?
+          OR campeon     LIKE ?
+          OR subcampeon  LIKE ?
+          OR goleador    LIKE ?
+          OR resumen     LIKE ?
+          OR descripcion LIKE ?`
+    )
+    .all(param, param, param, param, param, param, param);
+}
